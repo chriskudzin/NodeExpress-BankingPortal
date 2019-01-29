@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-
 const express = require('express');
-
+const {accounts, users, writeJSON } = require('../data');
+const accountRoutes = require('./routes/accounts');
+const serviceRoutes = require('./routes/services');
 const app = express();
-
+=
 const {accounts, users, writeJSON} = require('./data');
 
 app.set('views', path.join(__dirname, 'views'));
