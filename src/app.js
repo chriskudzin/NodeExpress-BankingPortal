@@ -44,6 +44,7 @@ accounts.credit.balance -= req.body.amount;
 accounts.credit.available += parseInt(req.body.amount, 10);
 const accountsJSON = JSON.stringify(accounts, null, 4);
 fs.writeFilySync(path.join(__dirname, 'json', 'accounts.json'), accountsJSON, 'utf8');
+res.render('payment', { message: 'Payment Successful', account: accounts.credit });
 })
 
 app.get('/profile', (req, res) =>  { res.render('profile', { user: users[0] }); })
